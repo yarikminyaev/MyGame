@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  </head>
+  <body>
+    
+    <div class="col-12" style="background-color: PaleTurquoise; height: 500px;">
+    <div class="d-flex">
+      <h1>HP:<span class="HPA">1000</span></h1>
+      <h1 style="margin-left: 1130px;">HP:<span class="HPB">1000</span></h1>
+       
+    </div>
+     <h1 style="margin-left: 1130px">Боеприпасы: <span class="bop">20</span></h1>
+    	<img src="cloud.png" alt="" style="position: absolute;">
+    	<img src="cloud.png" alt="" style="position: absolute; margin-left: 500px;">
+    	<img src="cloud.png" alt="" style="position: absolute; margin-left: 600px;">
+    	<img src="cloud.png" alt="" style="position: absolute; margin-left: 1000px;">
+    </div>
+    <div class="col-12" style="background-color: #5cb237; height: 200px;">
+		<button style="position: absolute; margin-left: 700px; margin-top: -300px; " class="btn btn-outline-dark btn-lg start">Начать</button>
+
+    	<img src="tree.png" alt="" style="position: absolute; height: 300px; margin-left: 1000px; margin-top: -200px;">
+
+
+    	<img src="fence.png" alt="" style="height: 150px; position: absolute; margin-top: -100px; margin-left: -100px">
+    	<img src="fence.png" alt="" style="height: 150px; position: absolute; margin-top: -100px;">
+    	<img src="fence.png" alt="" style="height: 150px; position: absolute; margin-top: -100px; margin-left: 100px">
+    	<img src="fence.png" alt="" style="height: 150px; position: absolute; margin-top: -100px; margin-left: 200px">
+    	<img src="fence.png" alt="" style="height: 150px; position: absolute; margin-top: -100px; margin-left: 300px">
+    	<img src="fence.png" alt="" style="height: 150px; position: absolute; margin-top: -100px; margin-left: 400px">
+    	<img src="fence.png" alt="" style="height: 150px; position: absolute; margin-top: -100px; margin-left: 500px">
+    	<img src="fence.png" alt="" style="height: 150px; position: absolute; margin-top: -100px; margin-left: 600px">
+    	<img src="fence.png" alt="" style="height: 150px; position: absolute; margin-top: -100px; margin-left: 700px">
+    	<img src="fence.png" alt="" style="height: 150px; position: absolute; margin-top: -100px; margin-left: 800px">
+
+    	<img src="tank.png" alt="" class="tank2" style="height: 160px; position: absolute; transform: scale(-1, 1); margin-left: -700px;">
+      <img src="tank.png" alt="" class="tank" style="height: 160px; position: absolute; margin-left: 1300px;">
+      <button style="position: absolute;" class="bb">Огонь</button>
+      <button style="position: absolute; margin-top: 40px;" class="bb2">Зарядить</button>
+
+      <div style="height: 20px; width: 20px; background-color: red; border-radius: 200px; position: absolute; margin-left: 1350px; margin-top: 50px;" class="ball"></div>
+    	
+    </div>
+    <div style="position: absolute; height: 100px; width: 200px; background-color: white; "></div>
+
+  
+
+
+  <script type="text/javascript">
+  	let tunk = document.querySelector('.tank')
+    let tunk2 = document.querySelector('.tank2')
+  	let start = document.querySelector('.start')
+    let fire = document.querySelector('.ball')
+
+
+    let div = document.querySelector('.col-12')
+    
+    let butt = document.querySelector('.bb')
+    let butt2 = document.querySelector('.bb2')
+
+    let position = 0
+    let positionB = 0
+     let positionC = 0
+
+    let bullet = 0
+
+
+    let HP1 = document.querySelector('.HPA')
+    let HP = 1000
+
+    let bo1 = document.querySelector('.bop')
+    let bo = 20
+
+
+
+  	start.onclick = function(){
+      position = position + 1000
+      tunk.style.marginLeft = position + "px";  
+  		start.style.display = "none";	
+      tunk.style.transition = "5s";
+        let proverka = function() {
+            positionC = positionC + 1
+            tunk2.style.marginLeft = positionC + "px"; 
+            tunk2.style.transition = "4s";
+        }
+      setTimeout(proverka,5000)
+
+  	}
+    butt.onclick = function(){
+      HP = HP - 10
+      HP1.innerHTML = HP;   
+      bo = bo - 1
+      bo1.innerHTML = bo;  
+        bullet = 1
+        positionB = positionB - 2300
+        fire.style.marginLeft = positionB + "px";   
+        fire.style.transition = "4s"
+
+      if ( bo == 0  ) {//условие
+        butt.style.display = 'none'
+      } 
+      else if(bo == 10){
+        butt.style.display = 'block'
+      }
+      else{
+        
+      }
+    }
+
+
+     butt2.onclick = function(){
+        fire.style.marginLeft = "1350px"
+        fire.style.marginTop = '50px'
+        fire.style.transition = "0.0001s"
+      }
+      
+
+      let interv = function(){
+        let rand_left = Math.random()*1300 //случайное число до 5
+        let round_left = Math.round(rand_left)
+
+        let rand_top = Math.random()*600
+        let round_top = Math.round(rand_top)
+
+       let elem = document.createElement("img")
+        div.appendChild(elem)
+          elem.src = "box.png"
+          elem.style.position = 'absolute'
+          elem.style.height = '70px'
+          elem.style.marginLeft = round_left + 'px'
+          elem.style.marginTop = round_top + 'px'
+          let proverka = function() {//создание функции
+             elem.style.display = 'none'
+          }
+          setTimeout(proverka,1000) //таймер
+          elem.onclick = function(){
+            bo = bo + 10
+            bo1.innerHTML = bo;
+            elem.style.display = 'none'
+          }
+      }
+
+      setInterval(interv,9000)
+         
+  </script>
+  </body>
+  }
+</html>

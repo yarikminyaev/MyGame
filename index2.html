@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<div style="height: 200px; width: 200px; background-color: red; position: absolute;" class="player"></div>
+
+
+	<button class="butt" style="margin-left: 800px; margin-top: 550px; position: absolute;">Вперед</button>
+	<button class="butt1" style="margin-left: 800px; margin-top: 650px; position: absolute;">Вниз</button>
+	<button class="butt2" style="margin-left: 750px; margin-top: 600px; position: absolute;">Влево</button>
+	<button class="butt3" style="margin-left: 850px; margin-top: 600px; position: absolute;">Вправо</button>
+</head>
+<body>
+	<script type="text/javascript">
+		let tank = document.querySelector('.player')
+  		let button1 = document.querySelector('.butt')
+  		let button2 = document.querySelector('.butt1')
+  		let button3 = document.querySelector('.butt2')
+  		let button4 = document.querySelector('.butt3')
+  		let position = 0
+  		let positionRL = 0
+
+
+//вверх
+  	button1.onclick = function(){
+  		position = position - 700
+  		tank.style.marginTop = position + "px";	
+  		tank.style.transition = "4s"
+//вниз
+  	}
+  	button2.onclick = function(){
+  		position = position + 700
+  		tank.style.marginTop = position + "px";	
+  		tank.style.transition = "4s"
+
+  	}
+  	button3.onclick = function(){
+  		positionRL = positionRL - 700
+  		tank.style.marginLeft = positionRL + "px";	
+  		tank.style.transition = "4s"
+
+  	}
+  	button4.onclick = function(){
+  		positionRL = positionRL + 700
+  		tank.style.marginLeft = positionRL + "px";	
+  		tank.style.transition = "4s"
+
+  	}
+	</script>
+</body>
+</html>
